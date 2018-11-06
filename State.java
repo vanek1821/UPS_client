@@ -1,0 +1,4 @@
+
+public enum State {
+	START, LOBBY, ROOM, GAME, MOVE, MOVE_WAIT, RESULTS
+}
