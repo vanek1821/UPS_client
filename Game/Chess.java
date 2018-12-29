@@ -1,4 +1,5 @@
 package Game;
+import java.util.List;
 import java.util.Scanner;
 
 import GUI.*;
@@ -21,6 +22,14 @@ public class Chess extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		String host = "127.0.0.1";
+		List<String> parameters = this.getParameters().getRaw();
+		for (String string : parameters) {
+			System.out.println(string);
+		}
+		if(parameters.size()>0) {
+			host = parameters.get(0);
+		}
+		System.out.println("Připojuji se na ip: " + host);
 		int port = 10000;
 		Scanner sc = new Scanner(System.in);
 		String con=null;
