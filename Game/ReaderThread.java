@@ -95,6 +95,8 @@ public class ReaderThread extends Thread{
 						client.setClientState(ClientState.REPLAY);
 						if(splitMes[2].equals("W")) client.getStageController().initResultStage(true);
 						else client.getStageController().initResultStage(false);
+						if(splitMes[3].equals("W")) client.setColor(Color.WHITE);
+						else client.setColor(Color.BLACK);
 					});
 				}
 			}
@@ -158,6 +160,11 @@ public class ReaderThread extends Thread{
 			}
 		}
 		else if(client.getState() == ClientState.GAME) {
+			if(splitMes[0].equals("TURN")) {
+				if(splitMes[1].equals("T")) client.setTurn(true);
+				else if(splitMes[1].equals("F")) client.setTurn(false);
+				
+			}
 			if(splitMes[0].equals("MOVE")) {
 				if(splitMes[1].equals("OK")) {
 					Platform.runLater(() -> {

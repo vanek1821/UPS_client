@@ -35,9 +35,8 @@ public class ConnectionThread extends Thread{
 			alert.setHeaderText("Connection lost");
 			alert.setContentText("You lost connection");
 			alert.showAndWait();
-			alert.setOnCloseRequest(event -> {
-				System.exit(0);
-			});
+			client.sendMessage("EXIT;");
+			System.exit(0);
 		});
 	}
 }

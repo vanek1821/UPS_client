@@ -72,6 +72,7 @@ public class StageController{
 		this.stage = stage;
 		this.fields = new Field[Constants.CHESS_SIZE+1][Constants.CHESS_SIZE+1];
 		this.stage.setOnCloseRequest(event -> {
+			client.sendMessage("EXIT;");
 			System.exit(0);
 		});
 	}
